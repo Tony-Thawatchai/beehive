@@ -1,0 +1,168 @@
+@import "mixins";
+@import "variables";
+// import roboto font from googlefont
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.5;
+
+  min-height: 100vh;
+
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+  background-color: rgb(210, 210, 210);
+}
+
+.beeHive {
+  min-width: 100%;
+
+  .beeHiveTitle {
+    font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .beeHiveContainer {
+    // width: 100%;
+    max-width: 410px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    padding: 1rem;
+    transition: all 1s;
+    gap: 0.25rem;
+
+    @include mobile {
+      max-width: 700px;
+    }
+    @include tablet {
+      max-width: 820px;
+    }
+    @include desktop {
+      max-width: 1024px;
+    }
+    @include desktop-large {
+      max-width: 1200px;
+    }
+  }
+
+  .row {
+    flex: 1 0 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+
+    &:nth-of-type(2) {
+      transform: translateY(-25%);
+    }
+    &:nth-of-type(3) {
+      transform: translateY(-50%);
+    }
+    &:nth-of-type(4) {
+      transform: translateY(-75%);
+    }
+
+    @include mobile {
+      &:nth-of-type(2) {
+        transform: translate(4%, -25%);
+      }
+      &:nth-of-type(3) {
+        transform: translate(-4%, -50%);
+      }
+      &:nth-of-type(4) {
+        transform: translate(4%, -75%);
+      }
+    }
+    &:first-of-type {
+      @include mobile {
+        transform: translateX(-4%);
+        .hexagon:nth-of-type(1),
+        .hexagon:nth-of-type(2) {
+          visibility: hidden;
+        }
+      }
+    }
+    &:last-of-type {
+      .hexagon:nth-of-type(5),
+      .hexagon:nth-of-type(6) {
+        display: none;
+
+        @include mobile {
+          display: block;
+        }
+      }
+    }
+    .hexagon {
+      background-color: #ec6;
+      flex-basis: 32%;
+
+      @include mobile {
+        flex-basis: 16%;
+      }
+
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      -webkit-clip-path: polygon(
+        50% 0%,
+        100% 25%,
+        100% 75%,
+        50% 100%,
+        0% 75%,
+        0% 25%
+      );
+
+      aspect-ratio: 1/1;
+      
+
+      &:nth-last-of-type(3n + 1),
+      &:nth-last-of-type(3n + 2),
+      &:nth-last-of-type(3n + 3) {
+        transform: translate(-25%, 0%);
+
+        @include mobile {
+          transform: translate(0%, 0%);
+        }
+      }
+
+      &:nth-last-of-type(6n + 1),
+      &:nth-last-of-type(6n + 2),
+      &:nth-last-of-type(6n + 3) {
+        transform: translate(25%, -25%);
+
+        @include mobile {
+          transform: translate(0%, 0%);
+        }
+      }
+
+      scale:0;
+      transition: all 1s;
+
+      &:hover {
+        rotate: 360deg;
+        transition: 0.7s;
+      }
+    }
+  }
+}

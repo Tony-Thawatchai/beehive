@@ -16,7 +16,7 @@ for (let i = 0; i < hexagons.length; i++) {
 
 function randomColor() {
   function rand() {
-    return Math.floor(Math.random() * 210);
+    return Math.floor(Math.random() * 200);
   }
 
   const rgb = `rgb(${rand()},${rand()},${rand()})`;

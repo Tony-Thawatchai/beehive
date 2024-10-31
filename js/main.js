@@ -14,6 +14,16 @@ for (let i = 0; i < hexagons.length; i++) {
     hexagons[i].style.scale = "1";
   });
 
+  hexagons[i].addEventListener("touchstart", function () {
+    let rgb = randomColor();
+    hexagons[i].style.backgroundColor = rgb;
+    hexagons[i].style.scale = "0.9";
+  });
+  
+  hexagons[i].addEventListener("touchend", function () {
+    hexagons[i].style.scale = "1";
+  });
+
   setTimeout(() => {
     hexagons[i].style.scale = "1";
   }, i * 50);

@@ -1,6 +1,5 @@
 @import "mixins";
 @import "variables";
-// import roboto font from googlefont
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
 * {
@@ -12,12 +11,9 @@
 body {
   font-family: "Roboto", sans-serif;
   line-height: 1.5;
-
   min-height: 100vh;
-
   padding-top: 2rem;
   padding-bottom: 2rem;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -36,20 +32,20 @@ body {
   }
 
   .beeHiveContainer {
-    // width: 100%;
-    max-width: 410px;
+    max-width: 280px;
     margin: 0 auto;
-
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-
     padding: 1rem;
     transition: all 1s;
     gap: 0.25rem;
 
+    @include mobile-small {
+      max-width: 410px;
+    }
     @include mobile {
       max-width: 700px;
     }
@@ -67,7 +63,6 @@ body {
   .row {
     flex: 1 0 100%;
     width: 100%;
-
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -134,7 +129,6 @@ body {
       );
 
       aspect-ratio: 1/1;
-      
 
       &:nth-last-of-type(3n + 1),
       &:nth-last-of-type(3n + 2),
@@ -156,12 +150,13 @@ body {
         }
       }
 
-      scale:0;
-      transition: all 1s;
+      scale: 0;
+      transition: all 0.7s;
 
       &:hover {
-        rotate: 360deg;
-        transition: 0.7s;
+        // rotate: 360deg;
+        scale : 0.9;
+        // transition: all 0.7s;
       }
     }
   }

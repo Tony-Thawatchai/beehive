@@ -29,7 +29,7 @@ body {
   text-align: center;
 }
 .beeHive .beeHiveContainer {
-  max-width: 410px;
+  max-width: 280px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -39,6 +39,11 @@ body {
   padding: 1rem;
   transition: all 1s;
   gap: 0.25rem;
+}
+@media screen and (min-width: 520px) {
+  .beeHive .beeHiveContainer {
+    max-width: 410px;
+  }
 }
 @media screen and (min-width: 768px) {
   .beeHive .beeHiveContainer {
@@ -116,7 +121,7 @@ body {
   -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
   aspect-ratio: 1/1;
   scale: 0;
-  transition: all 1s;
+  transition: all 0.7s;
 }
 @media screen and (min-width: 768px) {
   .beeHive .row .hexagon {
@@ -140,8 +145,7 @@ body {
   }
 }
 .beeHive .row .hexagon:hover {
-  rotate: 360deg;
-  transition: 0.7s;
+  scale: 0.9;
 }
 
 /*# sourceMappingURL=style.css.map */

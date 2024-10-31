@@ -7,6 +7,11 @@ for (let i = 0; i < hexagons.length; i++) {
   hexagons[i].addEventListener("mouseover", function () {
     let rgb = randomColor();
     hexagons[i].style.backgroundColor = rgb;
+    hexagons[i].style.scale = "0.9";
+  });
+
+  hexagons[i].addEventListener("mouseout", function () {
+    hexagons[i].style.scale = "1";
   });
 
   setTimeout(() => {
